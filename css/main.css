@@ -1,0 +1,22 @@
+body {
+  padding-top: 40px;
+}
+
+.app-layout {
+  background-color: #fff;
+  padding: 20px 0;
+}
+
+.container[class*="span"] {
+  float: none;
+  min-height: 1px;
+  margin-left: auto;
+}
+
+.form-login {
+  padding: 10px 20px;
+  margin: 20px inherit;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  background-color: #fefefe;
+}

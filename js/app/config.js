@@ -5,8 +5,6 @@ require.config({
   paths: {
     // folders
     libs:    '../libs',
-    plugins: '../plugins',
-    utils:   '../utils',
     tmpl:    '../../tmpl',
 
     // libs

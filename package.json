@@ -1,0 +1,33 @@
+{
+  "name": "marionette-bootstrap",
+  "version": "2.0.0",
+  "description": "A simple application built with Backbone Marionette and Twitter Bootstrap.",
+  "main": "index.html",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/nuragic/marionette-bootstrap.git"
+  },
+  "keywords": [
+    "backbone",
+    "marionette",
+    "require",
+    "jquery",
+    "underscore",
+    "bootstrap",
+    "single page application"
+  ],
+  "author": "@nuragic",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nuragic/marionette-bootstrap/issues"
+  },
+  "homepage": "https://github.com/nuragic/marionette-bootstrap",
+  "dependencies": {
+    "express": "~3.4.8",
+    "bower": "~1.2.8"
+  },
+  "devDependencies": {
+    "bower": "~1.3.1",
+    "gulp": "~3.8.6"
+  }
+}

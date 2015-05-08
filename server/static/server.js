@@ -6,7 +6,7 @@ app.configure(function() {
 });
 
 app.use(function(req, res) {
-  var newUrl = req.protocol + '://' + req.get('Host') + '/#' + req.url;
+  var newUrl = req.protocol + '://' + req.get('Host') + '/' + req.url;
   return res.redirect(newUrl);
 });
 

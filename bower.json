@@ -1,0 +1,35 @@
+{
+  "name": "marionette-bootstrap",
+  "version": "2.0.0",
+  "homepage": "https://github.com/nuragic/marionette-bootstrap",
+  "authors": [
+    "nuragic <me@nuragic.io>"
+  ],
+  "description": "An application boilerplate built with Backbone Marionette (v2.x) and Twitter Bootstrap (v3.x).",
+  "main": "index.html",
+  "keywords": [
+    "backbone",
+    "marionette",
+    "bootstrap",
+    "requirejs"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "js/libs",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "backbone.babysitter": "~0.1.0",
+    "backbone.wreqr": "~1.0.0",
+    "backbone": "1.0.0 - 1.1.2",
+    "jquery": "~2.1.0",
+    "marionette": "~2.0.1",
+    "requirejs": "~2.1.11",
+    "bootstrap": "~3.1.1",
+    "lodash-template-loader": "~0.1.7"
+  }
+}

@@ -1,0 +1,23 @@
+<div class="modal-header">
+  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+  <h3>{{ data.getTitle() }}</h3>
+</div>
+<form class="user">
+  <div class="modal-body">
+      <div class="control-group">
+        <label class="control-label" for="email">Email</label>
+        <div class="controls">
+          <input type="email" id="email" value="{{ data.email }}" required>
+        </div>
+      </div>
+
+      <div class="control-group">
+        <label class="control-label" for="rights">Rights</label>
+        <input type="text" id="rights" value="{{ data.rights }}" required>
+      </div>
+  </div>
+  <div class="modal-footer">
+    <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
+    <button type="submit" class="btn btn-primary save">Save</button>
+  </div>
+</form>

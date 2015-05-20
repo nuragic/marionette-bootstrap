@@ -1,25 +1,9 @@
-var express = require('express');
-var app = express();
-var users = require('./response/users.json');
+var jsonServer = require('json-server')
 
-var allowCrossDomain = function (req, res, next) {
-  res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
-  res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE');
-  res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+var server = jsonServer.create() // Returns an Express server
+var router = jsonServer.router(__dirname + '/db.json') // Returns an Express router
 
-  if ('OPTIONS' == req.method) {
-    res.send(200);
-  }
-  else {
-    next();
-  }
-};
+server.use(jsonServer.defaults) // logger, static and cors middlewares
+server.use(router) // Mount router on '/'
 
-app.use(allowCrossDomain);
-app.use(express.static(__dirname));
-
-app.get('/users', function(req, res){
-    res.json(users);
-});
-
-module.exports = app;
+module.exports = server;

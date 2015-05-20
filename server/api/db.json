@@ -1,0 +1,14 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "email": "admin@email.com",
+      "role": "admin"
+    },
+    {
+      "id": 2,
+      "email": "user@email.com",
+      "role": "user"
+    }
+  ]
+}

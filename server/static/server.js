@@ -5,9 +5,8 @@ app.configure(function() {
   app.use(express.static(__dirname + '/../../app'));
 });
 
-app.use(function(req, res) {
-  var newUrl = req.protocol + '://' + req.get('Host') + '/' + req.url;
-  return res.redirect(newUrl);
+app.get('*', function(request, response){
+  response.sendfile('app/index.html');
 });
 
 module.exports = app;

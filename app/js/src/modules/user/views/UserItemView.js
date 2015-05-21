@@ -11,12 +11,6 @@ function (Marionette, tmpl) {
 
     template: tmpl,
 
-    templateHelpers: {
-      getRights: function () {
-        return this.role == 'admin' ? 'Administrator' : 'Guest';
-      }
-    },
-
     triggers:  {
       // UserController is listening
       'click .edit'   : 'user:edit',
@@ -29,5 +23,5 @@ function (Marionette, tmpl) {
     }
 
   });
-  
+
 });

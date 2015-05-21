@@ -4,22 +4,17 @@ define([
 
 function (Marionette) {
 
-  //custom region that shows a view in bootstrap modal
-  var ModalRegion = Marionette.Region.extend({
+  // custom region that shows a view in a bootstrap modal
+  return Marionette.Region.extend({
 
-    el: "#modal",
-
-    onShow: function(view) {
-      view.on("close", this.hideModal, this);
+    onShow: function (view) {
       this.$el.modal('show');
     },
-    
-    hideModal: function() {
+
+    onEmpty: function() {
       this.$el.modal('hide');
     }
-    
+
   });
 
-  return ModalRegion;
-  
 });

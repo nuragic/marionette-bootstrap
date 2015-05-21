@@ -16,6 +16,7 @@ function (Marionette, _, modulesConfig) {
 
   return Marionette.AppRouter.extend({
 
+    // global app routes (do not add module's route here)
     appRoutes: {
       ''        : 'home',
       '/'       : 'home',

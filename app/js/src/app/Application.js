@@ -33,8 +33,11 @@ function (require, $, Backbone, Marionette, AppRouter, AppController, ModalRegio
 
   // application regions
   app.addRegions({
-    wrapper : "#wrapper",
-    modal   :  ModalRegion
+    wrapper: "#wrapper",
+    modal: {
+      selector    : "#modal",
+      regionClass : ModalRegion
+    }
   });
 
   // application events and callbacks
@@ -47,7 +50,7 @@ function (require, $, Backbone, Marionette, AppRouter, AppController, ModalRegio
   });
 
   app.vent.on('modal:close', function() {
-    app.modal.hideModal();
+    app.modal.reset();
   });
 
   // define and/or start a module
@@ -69,19 +72,20 @@ function (require, $, Backbone, Marionette, AppRouter, AppController, ModalRegio
       pushState: true
     });
 
-    // handle the click for every link (that doesn't have data-bypass)
+    // catch the click for every link (that doesn't have data-bypass)
     // in order to fire a 'navigate' event
-    $(document).on('click', 'a:not([data-bypass])', function (evt) {
+    $(document).on('click', 'a:not([data-bypass])', function (ev) {
       var href = $(this).attr('href');
       var protocol = this.protocol + '//';
       if (href.slice(protocol.length) !== protocol) {
-        evt.preventDefault();
+        ev.preventDefault();
         app.router.navigate(href, true);
       }
     });
   });
 
-  // initialize app router and controller
+  // initializer (called on application start)
+  // to instantiate app router and controller
   app.addInitializer(function (options) {
     app.router = new AppRouter({
       controller: new AppController({

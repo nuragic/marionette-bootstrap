@@ -9,7 +9,9 @@ function (Marionette, UserItemView, tmpl) {
   return Marionette.CompositeView.extend({
 
     childView: UserItemView,
-    
+
+    childViewContainer: 'tbody',
+
     template: tmpl,
 
     ui: {
@@ -22,15 +24,11 @@ function (Marionette, UserItemView, tmpl) {
     },
 
     events: {
-      'keyup [name="filter"]' : 'filter',
+      'keyup [name="filter"]' : 'filterResults',
       'click #resetFilter'    : 'resetFilter'
     },
 
-    attachBuffer: function (collectionView, buffer) {
-      collectionView.$("tbody").append(buffer);
-    },
-
-    filter: function () {
+    filterResults: function () {
       var val = this.ui.inputFilter.val();
       var filtered = this.collection.search(val);
       var originalModels = this.originalModels = this.collection.models.slice();

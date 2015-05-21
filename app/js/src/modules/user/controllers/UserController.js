@@ -1,14 +1,15 @@
 define([
   'marionette',
+  'underscore',
   'modules/user/views/UserListView',
   'modules/user/views/UserView',
   'modules/user/models/UserModel',
   'modules/user/collections/UserCollection'
 ],
 
-function (Marionette, UserListView, UserView, UserModel, UserCollection) {
+function (Marionette, _, UserListView, UserView, UserModel, UserCollection) {
 
-  var UserController = Marionette.Controller.extend({
+  return Marionette.Controller.extend({
 
     initialize: function (options) {
       this.appChannel = options.vent;
@@ -19,7 +20,7 @@ function (Marionette, UserListView, UserView, UserModel, UserCollection) {
         this.users = new UserCollection();
         this.users.fetch({reset: true});
       }
-    
+
       var userListView = new UserListView({
         collection: this.users
       });
@@ -32,12 +33,7 @@ function (Marionette, UserListView, UserView, UserModel, UserCollection) {
     },
 
     deleteUser: function (itemView) {
-      // TODO FIXME: remove window.confirm implement a better one
-      var confirm = window.confirm("Are you sure?");
-
-      if (confirm) {
         itemView.model.destroy();
-      }
     },
 
     editUser: function (itemView) {
@@ -53,7 +49,7 @@ function (Marionette, UserListView, UserView, UserModel, UserCollection) {
       var userModel = new UserModel({}, {
         collection: this.users
       });
-      
+
       var userView  = new UserView({
         model: userModel,
         action: 'create'
@@ -64,29 +60,28 @@ function (Marionette, UserListView, UserView, UserModel, UserCollection) {
     },
 
     saveUser: function (args) {
-      var self   = this;
       var view   = args.view;
       var model  = args.model;
-      var email  = view.$('#email').val();
-      var rights = view.$('#rights').val();
+      var data = {
+        email : view.$('#email').val(),
+        role  : view.$('#role').val()
+      };
 
-      model.save({
-        email: email,
-        rights: rights
-      }, {
-        success: function(model, response, options) {
-          self.users.add(model);
-          this.appChannel.trigger('modal:close');
-        },
-        error: function(model, xhr, options) {
-          console.log('User save server ERROR');
-        }
+      var _onSaveSuccess = function (model, response, options) {
+        this.users.add(model);
+        this.appChannel.trigger('modal:close');
+      };
+
+      var _onSaveError = function (model, xhr, options) {
+        console.log('User save server ERROR');
+      };
+
+      model.save(data, {
+        success : _.bind(_onSaveSuccess, this),
+        error   : _.bind(_onSaveError, this)
       });
-      
     }
 
   });
-
-  return UserController;
 
 });

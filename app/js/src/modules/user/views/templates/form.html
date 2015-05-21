@@ -1,23 +1,20 @@
-<div class="modal-header">
-  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-  <h3>{{ data.getTitle() }}</h3>
-</div>
-<form class="user">
+<div class="modal-content">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+    <h4 class="modal-title">{{ data.getTitle() }}</h4>
+  </div>
   <div class="modal-body">
-      <div class="control-group">
-        <label class="control-label" for="email">Email</label>
-        <div class="controls">
-          <input type="email" id="email" value="{{ data.email }}" required>
-        </div>
-      </div>
-
-      <div class="control-group">
-        <label class="control-label" for="rights">Rights</label>
-        <input type="text" id="rights" value="{{ data.rights }}" required>
-      </div>
+    <div class="form-group">
+      <label for="email">Email address</label>
+      <input required value="{{ data.email }}" type="email" class="form-control" id="email" placeholder="Enter email">
+    </div>
+    <div class="form-group">
+      <label for="role">Role</label>
+      <input required value="{{ data.role }}" type="text" class="form-control" id="role" placeholder="Role">
+    </div>
   </div>
   <div class="modal-footer">
-    <button class="btn" data-dismiss="modal" aria-hidden="true">Cancel</button>
-    <button type="submit" class="btn btn-primary save">Save</button>
+    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+    <button type="submit" class="btn btn-primary">Save</button>
   </div>
-</form>
+</div>

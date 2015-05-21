@@ -7,7 +7,9 @@ function (Marionette, tmpl) {
 
   return Marionette.ItemView.extend({
 
-    className: 'modal-content',
+    tagName: 'form',
+
+    className: 'modal-dialog',
 
     template: tmpl,
 

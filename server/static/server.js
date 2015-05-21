@@ -1,9 +1,7 @@
-var express = require('express'),
-    app = express();
+var express = require('express');
+var app = express();
 
-app.configure(function() {
-  app.use(express.static(__dirname + '/../../app'));
-});
+app.use(express.static(__dirname + '/../../app'));
 
 app.get('*', function(request, response){
   response.sendfile('app/index.html');

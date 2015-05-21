@@ -3,15 +3,15 @@ Marionette Bootstrap
 
 An application boilerplate built with Backbone Marionette (v2.x) and Twitter Bootstrap (v3.x).
 
-The full stack includes:
+The complete stack includes:
 
 - Backbone
 - Marionette
-- require
+- requirejs (AMD)
 - jQuery
 - lodash (+ lodash template loader)
 - Gulp
-- Express
+- Express (+ json server)
 - bower
 - npm
 - bootstrap
@@ -20,42 +20,48 @@ The full stack includes:
 Installation
 --------------
 
-Once you've the repository in your local machine, run:
-
-npm install (backend dependencies, see package.json)
-bower install (frontend dependencies, see bower.json)
-gulp (runs the app and api servers, see Gulpfile.js)
-
+Once you've cloned the repository in your local machine, run:
+````
+npm install
+bower install
+npm run dev
+````
 
 Architecture
 ------------
 
-The application has some architecture to achieve a few things:
+The application has some architecture in order to:
 
-- lazy load and start marionette modules in a simple way
+- lazy load modules and match the corresponding action by route
+- keep things loosely coupled and the responsibility of each component well defined
+- keep modules interconnected with a global channel (event aggregator)
 - use precompiled templates, among others customizations
 
-Anyway, you should navigate into the code to understand what it's doing under the woods... :)
+Anyway, I recommend you to navigate into the souce code in order to understand what it's doing under the hoods... :)
 
+The application itself, and also every module, has the following, required pieces: **Router**, **Controller** and **Layout**.
+
+The other (optionals) pieces are: **Models**, **Collections** and **Views** (of any kind).
 
 Modules
 -------
-Every part of the application (block of funcionality for ex.) can be organized by modules. To do so the app use the Marionette.Module implementation: the folder structures
-The module's configuration is centralized in the module-config.js file, Every module should have a
+An applicaton can be organized by splitting its whole funcionality into pieces. Every piece, or functional block, should be independent; to accomplish that we're using the Module class provided by Marionette. The module's configuration is centralized in the module-config.js file. If you want to add a module, you have to add an entry in this file and, obviously, add the coresponding folder in the src/modules folder. That's it!
 
 
 Pull requests
 -------------
 
-Contributions will be very much appreciated! Anyway, there are some todo's if you need some inspiration:
+Contributions will be very much appreciated! Anyway, if you need some inspiration, there are some pending TODO's:
 
-- Unit test
+- Enhancements on Gulpfile (build, watch, tuning...)
+- Unit tests
 - Functional tests
-- Enhancements on Gulpfile (build, watch, optimization...)
+- Better documentation
 - Not found page
 - Scaffolding
-- [your item here]
+- [your idea here]
 
+For any questions, feel free to send me an email. Thanks!
 
 License
 -------

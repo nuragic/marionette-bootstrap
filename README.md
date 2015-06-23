@@ -1,6 +1,8 @@
 Marionette Bootstrap
 ====================
 
+[![Join the chat at https://gitter.im/nuragic/marionette-bootstrap](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/nuragic/marionette-bootstrap?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 An application boilerplate built with Backbone Marionette (v2.x) and Twitter Bootstrap (v3.x).
 
 The complete stack includes:

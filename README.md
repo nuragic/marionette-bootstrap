@@ -58,8 +58,8 @@ Contributions will be very much appreciated! Here is a list with some pending TO
 - Production tasks
 - Tests
 - Not found page
-- Better documentation?
-- Scaffolding?
+- Improve documentation
+- Scaffolding
 
 If you have any questions feel free to contact me.
 

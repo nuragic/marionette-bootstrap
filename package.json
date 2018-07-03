@@ -23,7 +23,7 @@
   "homepage": "https://github.com/nuragic/marionette-bootstrap",
   "dependencies": {
     "express": "^4.12.4",
-    "json-server": "^0.7.8"
+    "json-server": "^0.8.11"
   },
   "devDependencies": {
     "bower": "^1.4.1",
